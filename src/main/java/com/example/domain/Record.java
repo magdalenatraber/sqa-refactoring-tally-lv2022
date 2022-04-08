@@ -2,7 +2,7 @@ package com.example.domain;
 
 import java.math.BigDecimal;
 
-public class Record {
+public class Record implements IRecord{
     Bank bank;
     String beneficiaryAccountNumber;
     String beneficiaryName;

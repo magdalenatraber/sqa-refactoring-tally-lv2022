@@ -1,13 +1,16 @@
 package com.example.record.domain;
 
 import com.example.domain.Currency;
+import com.example.domain.IRecord;
 
-public class TempRecord {
+import java.math.BigDecimal;
+
+public class TempRecord implements IRecord {
     String sign;
     Currency currency;
-    String amount;
+    BigDecimal amount;
 
-    public TempRecord(String sign, Currency currency, String amount) {
+    public TempRecord(String sign, Currency currency, BigDecimal amount) {
         this.sign = sign;
         this.currency = currency;
         this.amount = amount;
@@ -16,6 +19,13 @@ public class TempRecord {
     public String getSign() {
         return sign;
     }
+
+    @Override
+    public Currency getCurrency() {
+        return currency;
+    }
+
+
 
     public void setSign(String sign) {
         this.sign = sign;
@@ -29,11 +39,11 @@ public class TempRecord {
         this.currency.setCode(currencyCode);
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 }
