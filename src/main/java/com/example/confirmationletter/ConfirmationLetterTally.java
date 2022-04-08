@@ -97,7 +97,7 @@ public class ConfirmationLetterTally {
     // Calculate sum amount from faultyAccountnumber list
     private Map<String, BigDecimal> calculateAmountsFaultyAccountNumber(
             List<TempRecord> faultyAccountNumberRecordList, Client client) {
-        Map<String, BigDecimal> retrievedAmountsFaultyAccountNumber = new HashMap<String, BigDecimal>();
+
 
 
         Tally tally = new Tally();
@@ -106,22 +106,16 @@ public class ConfirmationLetterTally {
             fixSignAndCurrencyCode(client, faultyAccountNumberRecord);
 
             tally.addTempRecord(faultyAccountNumberRecord);
-
-            retrievedAmountsFaultyAccountNumber.put("FaultyAccDebitFL",
-                    tally.faultyAccRecordAmountDebitFL);
-            retrievedAmountsFaultyAccountNumber.put("FaultyAccDebitUSD",
-                    tally.faultyAccRecordAmountDebitUSD);
-            retrievedAmountsFaultyAccountNumber.put("FaultyAccDebitEUR",
-                    tally.faultyAccRecordAmountDebitEUR);
-
-            retrievedAmountsFaultyAccountNumber.put("FaultyAccCreditFL",
-                    tally.faultyAccRecordAmountCreditFL);
-            retrievedAmountsFaultyAccountNumber.put("FaultyAccCreditUSD",
-                    tally.faultyAccRecordAmountCreditUSD);
-            retrievedAmountsFaultyAccountNumber.put("FaultyAccCreditEUR",
-                    tally.faultyAccRecordAmountCreditEUR);
-
         }
+            Map<String, BigDecimal> retrievedAmountsFaultyAccountNumber = new HashMap<>();
+            retrievedAmountsFaultyAccountNumber.put("FaultyAccDebitFL", tally.faultyAccRecordAmountDebitFL);
+            retrievedAmountsFaultyAccountNumber.put("FaultyAccDebitUSD", tally.faultyAccRecordAmountDebitUSD);
+            retrievedAmountsFaultyAccountNumber.put("FaultyAccDebitEUR", tally.faultyAccRecordAmountDebitEUR);
+            retrievedAmountsFaultyAccountNumber.put("FaultyAccCreditFL", tally.faultyAccRecordAmountCreditFL);
+            retrievedAmountsFaultyAccountNumber.put("FaultyAccCreditUSD", tally.faultyAccRecordAmountCreditUSD);
+            retrievedAmountsFaultyAccountNumber.put("FaultyAccCreditEUR", tally.faultyAccRecordAmountCreditEUR);
+
+
         return retrievedAmountsFaultyAccountNumber;
     }
 
